@@ -1,0 +1,189 @@
+// Override Bootstrap's Sass default variables
+//
+// Nearly all variables in Bootstrap are written with the `!default` flag.
+// This allows you to override the default values of those variables before
+// you import Bootstrap's source Sass files.
+//
+// Overriding the default variable values is the best way to customize your
+// CSS without writing _new_ styles. For example, change you can either change
+// `$body-color` or write more CSS that override's Bootstrap's CSS like so:
+// `body { color: red; }`.
+
+//
+// Bring in Bootstrap
+//
+
+// Option 1
+//
+// Import all of Bootstrap's CSS
+
+// @import "bootstrap/scss/bootstrap";
+
+// Option 2
+//
+// Place variable overrides first, then import just the styles you need. Note that some stylesheets are required no matter what.
+
+// Toggle global options
+$enable-gradients: true;
+$enable-shadows: true;
+
+$offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+
+// Customize some defaults
+$body-color: #333;
+$body-bg: #fff;
+$border-radius: 0.4rem;
+$success: #7952b3;
+
+// Required
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/reboot";
+
+// @import "bootstrap/scss/type";
+// @import "bootstrap/scss/images";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+// @import "bootstrap/scss/tables";
+// @import "bootstrap/scss/forms";
+@import "bootstrap/scss/buttons";
+// @import "bootstrap/scss/transitions";
+// @import "bootstrap/scss/dropdown";
+// @import "bootstrap/scss/button-group";
+// @import "bootstrap/scss/nav";
+// @import "bootstrap/scss/navbar"; // Requires nav
+// @import "bootstrap/scss/card";
+// @import "bootstrap/scss/breadcrumb";
+// @import "bootstrap/scss/accordion";
+// @import "bootstrap/scss/pagination";
+// @import "bootstrap/scss/badge";
+// @import "bootstrap/scss/alert";
+// @import "bootstrap/scss/progress";
+// @import "bootstrap/scss/list-group";
+@import "bootstrap/scss/close";
+// @import "bootstrap/scss/toasts";
+@import "bootstrap/scss/modal"; // Requires transitions
+// @import "bootstrap/scss/tooltip";
+// @import "bootstrap/scss/popover";
+// @import "bootstrap/scss/carousel";
+// @import "bootstrap/scss/spinners";
+// @import "bootstrap/scss/offcanvas"; // Requires transitions
+// @import "bootstrap/scss/placeholders";
+
+// Helpers
+// @import "helpers";
+
+// Utilities
+@import "bootstrap/scss/utilities/api";
+
+//
+// Custom styles
+//
+
+@import "icon-list";
+
+.root {
+}
+
+body {
+	padding: 0;
+	font-family: "Roboto", sans-serif;
+	background-color: #f8faff;
+}
+
+.page {
+	display: grid;
+	grid-template: 77px 1fr / 252px 1fr;
+	grid-gap: 0 58px;
+	grid-template-areas:
+		"aside header"
+		"aside body";
+}
+
+.sidebar {
+	grid-area: aside;
+	width: 256px;
+	min-height: 100vh;
+	background-color: #fff;
+}
+
+.header {
+	grid-area: header;
+	min-height: 77px;
+	background-color: blue;
+}
+
+.content {
+	background: #ffffff;
+	box-shadow: 0px 0px 38px rgba(136, 167, 245, 0.08);
+}
+
+.logo {
+	display: block;
+	margin: 0 0 1.7875rem;
+}
+
+.navbar-brand {
+	position: relative;
+
+	display: flex;
+	align-items: center;
+	padding: 0.9rem 0;
+
+	font-size: 0.875rem;
+	font-weight: 500;
+	line-height: 150%; /* 21px/14 */
+
+	color: #7d7d7d;
+	text-decoration: none;
+
+	span {
+		color: #7d7d7d;
+	}
+}
+
+.navbar-brand svg {
+	width: 1.3125rem;
+	height: auto;
+	margin: 0 1.25rem 0 0;
+}
+
+.navbar-brand::before {
+	position: absolute;
+	top: 0;
+	left: -1.5rem;
+
+	content: "";
+	display: block;
+	width: 0.25rem;
+	height: 100%;
+
+	background: #6666cc;
+	box-shadow: 0px 2px 10px rgba(102, 102, 204, 0.67);
+
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.navbar-brand.active::before {
+	opacity: 1;
+	visibility: visible;
+}
+
+.navbar-brand.active {
+	color: #6666cc;
+}
+
+.navbar-brand svg,
+.navbar-brand svg * {
+	@media (any-hover: hover) {
+		&:hover {
+			transition: all 0.3s ease;
+		}
+	}
+}
