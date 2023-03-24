@@ -107,6 +107,10 @@ textarea:focus {
 	box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
 
+.mouse-clicked *:focus {
+	box-shadow: none;
+}
+
 body {
 	padding: 0;
 	font-family: "Roboto", sans-serif;

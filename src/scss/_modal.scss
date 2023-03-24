@@ -7,8 +7,10 @@
 	padding: 0 0.9375rem !important;
 
 	@media (max-width: 575.98px) {
-		--bs-modal-padding: 13px 15px 20px;
-		--bs-modal-header-padding: 15px;
+		--bs-modal-padding: 0.8125rem 0.9375rem 1.25rem;
+		--bs-modal-header-padding: 0.9375rem;
+
+		padding: 0 !important;
 	}
 
 	.modal-footer,
@@ -86,6 +88,20 @@
 		}
 	}
 
+	.input-group {
+		position: relative;
+	}
+
+	.error-message {
+		position: absolute;
+		left: 0;
+		top: 100%;
+		margin-top: 0.1875rem;
+
+		font-size: 0.75rem;
+		color: #d11818;
+	}
+
 	.validate-info {
 		svg {
 			margin-inline-end: 1rem;
@@ -100,6 +116,11 @@
 			line-height: 150%; /* 18px/12 */
 
 			color: #7d7d7d;
+		}
+
+		a {
+			text-decoration: none;
+			color: #6666cc;
 		}
 	}
 }

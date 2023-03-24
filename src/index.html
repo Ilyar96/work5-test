@@ -78,16 +78,16 @@
 					</div>
 
 					<button class="menu-btn">
-						<div class="icon-menu">
+						<span class="icon-menu">
 							<span></span>
 							<span></span>
 							<span></span>
-						</div>
+						</span>
 					</button>
 				</div>
 			</header>
 
-			<aside class="sidebar p-4">
+			<aside class="sidebar py-4">
 				<img
 					class="logo"
 					src="./images/logo.png"
@@ -211,7 +211,7 @@
 													xlink:href="./images/sprites/icons.svg#pencil-icon"
 												></use>
 											</svg>
-											<span>Редактировать</spa>
+											<span>Редактировать</span>
 										</button>
 										<button type="button" class="btn btn-secondary">
 											<svg height="100" width="100">
@@ -219,7 +219,7 @@
 													xlink:href="./images/sprites/icons.svg#close-icon"
 												></use>
 											</svg>
-											<span>Удалить</spa>
+											<span>Удалить</span>
 										</button>
 									</td>
 								</tr>
@@ -232,19 +232,11 @@
 			<div class="menu-background"></div>
 		</div>
 
-		<div
-			class="modal fade"
-			id="create-shop"
-			aria-hidden="true"
-			aria-labelledby="exampleModalToggleLabel"
-			tabindex="-1"
-		>
+		<div class="modal fade" id="create-shop" aria-hidden="true" tabindex="-1">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h2 class="modal-title fs-5" id="exampleModalToggleLabel">
-							Создать магазин
-						</h2>
+						<h2 class="modal-title fs-5">Создать магазин</h2>
 						<button
 							type="button"
 							class="btn-close"
@@ -261,7 +253,7 @@
 						<div class="d-sm-flex justify-content-sm-between mb-4">
 							<div class="col">
 								<label for="template" class="form-label">Шаблон</label>
-								<select name="color" id="color" class="form">
+								<select name="template" id="template" class="form">
 									<option value="standart" selected>Стандартный</option>
 									<option value="premium">Премиум</option>
 								</select>
@@ -280,6 +272,7 @@
 						<div class="input-group mb-4">
 							<input
 								id="domain"
+								name="domain"
 								type="text"
 								class="form-control domain"
 								placeholder="Например: ivangrozniy"
@@ -298,7 +291,7 @@
 								В названии домена разрешены латиница и “-”, запрещается
 								использовать словосочетание Work 5. После создания магазина Вы
 								сможете прикрутить свой домен (например ivangrozniy.ru).
-								Подробнее по ссылке
+								Подробнее по <a href="#">ссылке</a>
 							</p>
 						</div>
 
@@ -311,9 +304,46 @@
 							>
 								Отмена
 							</button>
-							<button type="button" class="btn btn-success">Создать</button>
+							<button
+								type="submit"
+								class="btn btn-success"
+								disabled
+								data-bs-target="#form-result"
+								data-bs-toggle="modal"
+							>
+								Создать
+							</button>
 						</div>
 					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="form-result" aria-hidden="true" tabindex="-1">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2 class="modal-title fs-5">Успешно отправлено</h2>
+
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="modal"
+							aria-label="Close"
+						></button>
+					</div>
+					<div class="modal-body">
+						<p>Данные формы в консоли</p>
+
+						<button
+							type="button"
+							class="btn btn-secondary"
+							data-bs-dismiss="modal"
+							aria-label="Close"
+						>
+							Закрыть
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>

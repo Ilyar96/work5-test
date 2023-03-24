@@ -9,28 +9,37 @@
 		left: 0;
 		z-index: 100;
 
-		padding-top: 0 !important;
-		padding-bottom: 0 !important;
+		padding: 0 !important;
 
 		transform: translate3d(-101%, 0, 0);
-		transition: transform 0.7s ease;
+		transition: transform 0.5s ease;
 
 		.menu-open & {
 			transform: translateZ(0);
 		}
 	}
+
+	> * {
+		padding-inline-start: 1.5rem;
+		padding-inline-end: 1.5rem;
+	}
 }
 .logo {
 	display: block;
-	margin: 0 0 1.7875rem;
+	margin: 0 0 1.5375rem;
 }
 
 .navbar {
 	overflow-y: auto;
 	max-height: 100%;
 
+	@media (min-width: 1199.98px) {
+		padding-top: 0.25rem;
+		padding-bottom: 0.25rem;
+	}
+
 	@media (max-width: 1199.98px) {
-		padding: 1.5rem 0;
+		padding: 1.5rem;
 	}
 }
 
