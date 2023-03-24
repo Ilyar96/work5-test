@@ -24,16 +24,15 @@
 // Place variable overrides first, then import just the styles you need. Note that some stylesheets are required no matter what.
 
 // Toggle global options
-$enable-gradients: true;
+$enable-gradients: false;
 $enable-shadows: true;
 
 $offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
 
 // Customize some defaults
-$body-color: #333;
-$body-bg: #fff;
+$body-color: #343434;
+$body-bg: #f8faff;
 $border-radius: 0.4rem;
-$success: #7952b3;
 
 // Required
 @import "bootstrap/scss/functions";
@@ -49,15 +48,15 @@ $success: #7952b3;
 @import "bootstrap/scss/containers";
 @import "bootstrap/scss/grid";
 // @import "bootstrap/scss/tables";
-// @import "bootstrap/scss/forms";
+@import "bootstrap/scss/forms";
 @import "bootstrap/scss/buttons";
-// @import "bootstrap/scss/transitions";
+@import "bootstrap/scss/transitions";
 // @import "bootstrap/scss/dropdown";
 // @import "bootstrap/scss/button-group";
 // @import "bootstrap/scss/nav";
 // @import "bootstrap/scss/navbar"; // Requires nav
 // @import "bootstrap/scss/card";
-// @import "bootstrap/scss/breadcrumb";
+@import "bootstrap/scss/breadcrumb";
 // @import "bootstrap/scss/accordion";
 // @import "bootstrap/scss/pagination";
 // @import "bootstrap/scss/badge";
@@ -86,104 +85,145 @@ $success: #7952b3;
 
 @import "icon-list";
 
-.root {
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	border: 0;
+	clip: rect(0 0 0 0);
+}
+
+.navbar-brand:focus,
+.message:focus,
+.breadcrumb-item a:focus,
+.select__title:focus,
+.select__option:focus,
+input:focus,
+textarea:focus {
+	outline: 0;
+	box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
 
 body {
 	padding: 0;
 	font-family: "Roboto", sans-serif;
-	background-color: #f8faff;
+
+	.menu-open {
+		overflow: hidden;
+	}
+}
+
+.form-control {
+	border-radius: 0.125rem;
+}
+
+.title {
+	margin-bottom: 1.6875rem;
+	font-weight: 500;
+	font-size: 1.25rem;
+}
+
+.btn {
+	--bs-btn-border-radius: 0.125rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 2.25rem;
+	padding: 0 1rem;
+	font-weight: 400;
+	font-size: 0.75rem;
+	line-height: 1;
+	box-shadow: 0;
+	border: none;
+
+	svg {
+		width: auto;
+		height: 0.9375rem;
+		margin-inline-end: 0.875rem;
+		object-fit: contain;
+	}
+}
+
+.btn-primary {
+	--bs-btn-color: #fff;
+	--bs-btn-bg: #6666cc;
+	--bs-btn-border-color: #6666cc;
+	--bs-btn-hover-color: #fff;
+	--bs-btn-hover-bg: #6060c0;
+	--bs-btn-hover-border-color: #6060c0;
+	--bs-btn-focus-shadow-rgb: 49, 132, 253;
+	--bs-btn-active-color: #fff;
+	--bs-btn-active-bg: #5656af;
+	--bs-btn-active-border-color: #5656af;
+	--bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+	--bs-btn-disabled-color: #fff;
+	--bs-btn-disabled-bg: #6666cc;
+	--bs-btn-disabled-border-color: #6666cc;
+}
+
+.btn-success {
+	--bs-btn-bg: #55c97b;
+	--bs-btn-border-color: #55c97b;
+	--bs-btn-hover-bg: #4bb86f;
+	--bs-btn-hover-border-color: #4bb86f;
+	--bs-btn-active-bg: #45a866;
+	--bs-btn-active-border-color: #45a866;
+	--bs-btn-disabled-bg: #55c97b;
+	--bs-btn-disabled-border-color: #55c97b;
+}
+
+.btn-secondary {
+	--bs-btn-color: #fff;
+	--bs-btn-bg: #b1b1b1;
+	--bs-btn-border-color: #b1b1b1;
+	--bs-btn-hover-color: #fff;
+	--bs-btn-hover-bg: #a5a3a3;
+	--bs-btn-hover-border-color: #a5a3a3;
+	--bs-btn-focus-shadow-rgb: 130, 138, 145;
+	--bs-btn-active-color: #fff;
+	--bs-btn-active-bg: #999797;
+	--bs-btn-active-border-color: #999797;
+	--bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+	--bs-btn-disabled-color: #fff;
+	--bs-btn-disabled-bg: #b1b1b1;
+	--bs-btn-disabled-border-color: #b1b1b1;
 }
 
 .page {
-	display: grid;
-	grid-template: 77px 1fr / 252px 1fr;
-	grid-gap: 0 58px;
-	grid-template-areas:
-		"aside header"
-		"aside body";
-}
-
-.sidebar {
-	grid-area: aside;
-	width: 256px;
-	min-height: 100vh;
-	background-color: #fff;
-}
-
-.header {
-	grid-area: header;
-	min-height: 77px;
-	background-color: blue;
-}
-
-.content {
-	background: #ffffff;
-	box-shadow: 0px 0px 38px rgba(136, 167, 245, 0.08);
-}
-
-.logo {
-	display: block;
-	margin: 0 0 1.7875rem;
-}
-
-.navbar-brand {
-	position: relative;
-
-	display: flex;
-	align-items: center;
-	padding: 0.9rem 0;
-
-	font-size: 0.875rem;
-	font-weight: 500;
-	line-height: 150%; /* 21px/14 */
-
-	color: #7d7d7d;
-	text-decoration: none;
-
-	span {
-		color: #7d7d7d;
+	@media (min-width: 1199.98px) {
+		display: grid;
+		grid-template: 5.4375rem 1fr / 15.75rem 1fr;
+		grid-gap: 0.625rem 3.925rem;
+		grid-template-areas:
+			"aside header"
+			"aside body";
+		padding-inline-start: 0;
 	}
 }
 
-.navbar-brand svg {
-	width: 1.3125rem;
-	height: auto;
-	margin: 0 1.25rem 0 0;
-}
-
-.navbar-brand::before {
-	position: absolute;
-	top: 0;
-	left: -1.5rem;
-
-	content: "";
-	display: block;
-	width: 0.25rem;
-	height: 100%;
-
-	background: #6666cc;
-	box-shadow: 0px 2px 10px rgba(102, 102, 204, 0.67);
-
-	opacity: 0;
-	visibility: hidden;
-	transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.navbar-brand.active::before {
-	opacity: 1;
-	visibility: visible;
-}
-
-.navbar-brand.active {
-	color: #6666cc;
-}
-
-.navbar-brand svg,
-.navbar-brand svg * {
-	@media (any-hover: hover) {
-		&:hover {
-			transition: all 0.3s ease;
+.menu-background {
+	display: none;
+	@media (max-width: 1199.98px) {
+		.menu-open & {
+			position: fixed;
+			inset: 0;
+			z-index: 99;
+			content: "";
+			display: block;
+			width: 100vw;
+			height: 100vh;
+			inset: 0;
+			background-color: rgba(0, 0, 0, 0.3);
 		}
 	}
 }
+
+@import "header.scss";
+@import "sidebar.scss";
+@import "table.scss";
+@import "content.scss";
+@import "modal.scss";
+@import "forms/select.scss";

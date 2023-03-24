@@ -14,16 +14,93 @@
 		<script type="module" src="./js/main.js"></script>
 	</head>
 	<body>
-		<div class="page container-fluid pe-md-3 ps-0">
+		<div class="page container-fluid pe-md-3">
+			<header class="header">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="#">Главная</a></li>
+						<li class="breadcrumb-item active" aria-current="page">
+							Мои магазины
+						</li>
+					</ol>
+				</nav>
+
+				<div class="info">
+					<a href="#" class="message">
+						<svg
+							width="65"
+							height="65"
+							viewBox="0 0 65 65"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<g clip-path="url(#clip0_0_5)">
+								<path
+									d="M5 0.5H59.9999C62.4853 0.5 64.4999 2.51468 64.4999 5V59.9999C64.4999 62.4853 62.4852 64.5 59.9999 64.5H5C2.5146 64.5 0.499805 62.4852 0.499805 59.9999V5C0.499805 2.5147 2.51459 0.5 5 0.5Z"
+									fill="black"
+									fill-opacity="0.01"
+									stroke="#D4D4D4"
+								/>
+								<path
+									d="M42.3295 24H24.1002C23.0581 24 22.2133 24.8448 22.2133 25.8869V40.1127C22.2133 41.1548 23.0581 41.9996 24.1002 41.9996H42.3295C43.3716 41.9996 44.2164 41.1548 44.2164 40.1127V25.8869C44.2164 24.8448 43.3716 24 42.3295 24Z"
+									fill="#7B7B7B"
+								/>
+								<path
+									d="M22 28.5286L31.7792 35.6989C32.5176 36.2404 33.7317 36.2404 34.4701 35.6989L44.4298 28.3974"
+									stroke="white"
+									stroke-width="0.75477"
+									stroke-miterlimit="22.9256"
+								/>
+								<path
+									d="M49.5 22.5C49.5 19.7385 47.2614 17.5 44.5 17.5C41.7385 17.5 39.5 19.7385 39.5 22.5C39.5 25.2614 41.7386 27.5 44.5 27.5C47.2614 27.5 49.5 25.2614 49.5 22.5Z"
+									fill="#E42626"
+									stroke="white"
+									stroke-width="3"
+								/>
+							</g>
+							<defs>
+								<clipPath id="clip0_0_5">
+									<rect width="65" height="65" fill="white" />
+								</clipPath>
+							</defs>
+						</svg>
+						<span class="visually-hidden">Мои сообщения</span>
+					</a>
+
+					<div class="profile ms-3">
+						<img
+							src="./images/avatar.png"
+							class="profile-avatar"
+							alt="Максим Добжанский"
+						/>
+
+						<span class="profile-name">Максим Добжанский </span>
+					</div>
+
+					<button class="menu-btn">
+						<div class="icon-menu">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+					</button>
+				</div>
+			</header>
+
 			<aside class="sidebar p-4">
-				<img class="logo" src="./images/logo.png" alt="Логотип Work5" />
+				<img
+					class="logo"
+					src="./images/logo.png"
+					alt="Логотип Work5"
+					data-da=".info,1199,first"
+				/>
 
 				<nav class="navbar">
 					<a class="navbar-brand" href="#">
 						<svg height="100" width="100">
 							<use xlink:href="./images/sprites/icons.svg#house-icon"></use>
 						</svg>
-						<span>Главная</spa>
+						<span>Главная</span>
 					</a>
 					<a class="navbar-brand active" href="#">
 						<svg height="100" width="100">
@@ -75,8 +152,170 @@
 					</a>
 				</nav>
 			</aside>
-			<header class="header ps-5"></header>
-			<main class="content"></main>
+
+			<main class="content">
+				<button
+					type="button"
+					class="btn btn-success btn-shop"
+					data-bs-toggle="modal"
+					data-bs-target="#create-shop"
+				>
+					<span class="me-2">+</span> Создать свой магазин
+				</button>
+
+				<section>
+					<h2 class="title">Управление магазинами</h2>
+
+					<div class="shops">
+						<table>
+							<thead>
+								<tr>
+									<th>№</th>
+									<th>Название</th>
+									<th>Адрес</th>
+									<th class="table-buttons-label">Действие</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td data-label="№">12345</td>
+									<td data-label="Название">Дипломная работа</td>
+									<td data-label="Адрес">http://www.work5.ru/services</td>
+									<td class="table-buttons" data-label="Действие">
+										<button type="button" class="btn btn-success">
+											<svg height="100" width="100">
+												<use
+													xlink:href="./images/sprites/icons.svg#pencil-icon"
+												></use>
+											</svg>
+											<span>Редактировать</span>
+										</button>
+										<button type="button" class="btn btn-secondary">
+											<svg height="100" width="100">
+												<use
+													xlink:href="./images/sprites/icons.svg#close-icon"
+												></use>
+											</svg>
+											<span>Удалить</span>
+										</button>
+									</td>
+								</tr>
+								<tr>
+									<td data-label="№">12345</td>
+									<td data-label="Название">Дипломная работа</td>
+									<td data-label="Адрес">http://www.work5.ru/services</td>
+									<td class="table-buttons" data-label="Действие">
+										<button type="button" class="btn btn-success">
+											<svg height="100" width="100">
+												<use
+													xlink:href="./images/sprites/icons.svg#pencil-icon"
+												></use>
+											</svg>
+											<span>Редактировать</spa>
+										</button>
+										<button type="button" class="btn btn-secondary">
+											<svg height="100" width="100">
+												<use
+													xlink:href="./images/sprites/icons.svg#close-icon"
+												></use>
+											</svg>
+											<span>Удалить</spa>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</section>
+			</main>
+
+			<div class="menu-background"></div>
+		</div>
+
+		<div
+			class="modal fade"
+			id="create-shop"
+			aria-hidden="true"
+			aria-labelledby="exampleModalToggleLabel"
+			tabindex="-1"
+		>
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2 class="modal-title fs-5" id="exampleModalToggleLabel">
+							Создать магазин
+						</h2>
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="modal"
+							aria-label="Close"
+						>
+							<svg height="16" width="16">
+								<use xlink:href="./images/sprites/icons.svg#cancel-icon"></use>
+							</svg>
+						</button>
+					</div>
+
+					<form class="modal-body modal-form">
+						<div class="d-sm-flex justify-content-sm-between mb-4">
+							<div class="col">
+								<label for="template" class="form-label">Шаблон</label>
+								<select name="color" id="color" class="form">
+									<option value="standart" selected>Стандартный</option>
+									<option value="premium">Премиум</option>
+								</select>
+							</div>
+							<div class="col">
+								<label for="color" class="form-label">Цветовая схема</label>
+								<select name="color" id="color" class="form">
+									<option value="classic" selected>Классическая</option>
+									<option value="2">Пункт 2</option>
+									<option value="3">Пункт 3</option>
+								</select>
+							</div>
+						</div>
+
+						<label for="domain" class="form-label">Домен</label>
+						<div class="input-group mb-4">
+							<input
+								id="domain"
+								type="text"
+								class="form-control domain"
+								placeholder="Например: ivangrozniy"
+								aria-label="Например: ivangrozniy"
+								aria-describedby="button-addon2"
+							/>
+							<span class="input-group-text" id="button-addon2">.work5.ru</span>
+						</div>
+
+						<div class="d-flex validate-info mb-4">
+							<svg height="100" width="100">
+								<use xlink:href="./images/sprites/icons.svg#warnin-icon"></use>
+							</svg>
+
+							<p>
+								В названии домена разрешены латиница и “-”, запрещается
+								использовать словосочетание Work 5. После создания магазина Вы
+								сможете прикрутить свой домен (например ivangrozniy.ru).
+								Подробнее по ссылке
+							</p>
+						</div>
+
+						<div class="modal-footer">
+							<button
+								type="button"
+								class="btn btn-secondary"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							>
+								Отмена
+							</button>
+							<button type="button" class="btn btn-success">Создать</button>
+						</div>
+					</form>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>
